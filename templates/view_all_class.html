@@ -1,0 +1,29 @@
+{% extends 'common.html' %}
+{% block pw %}
+    {% include 'index.html' %}
+
+
+
+    <body id="fs-toggle">
+<table align="center" border="0" >
+    <tr bgcolor="#5f9ea0" style="color: #0f0dff">
+        <th>Name</th>
+        <th width="100">Faculty</th>
+        <th width="100">Date</th>
+        <th width="100">Time</th>
+        <th width="100">Fee</th>
+        <th width="100">Duration</th>
+    </tr>
+    {% for x in data %}
+        <tr style="color: #000009">
+            <th width="100">{{ x.name }}</th>
+            <th width="100">{{ x.faculty }}</th>
+            <th width="100">{{ x.date }}</th>
+            <th width="100">{{ x.time }}</th>
+            <th width="150">{{ x.fee }}</th>
+            <th width="150">{{ x.duration }}</th>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

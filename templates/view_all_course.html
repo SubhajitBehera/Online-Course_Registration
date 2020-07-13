@@ -1,0 +1,16 @@
+{% extends 'common.html' %}
+{% block pw %}
+    {% include  'welcome_student.html' %}
+    <table align="center" border="2">
+    <tr style="width: 200px;background-color: #f5150d;color: white;text-align: center">
+        <th>COURSE NAME</th>
+        <th>COURSE FACULTY</th>
+    </tr>
+    {% for x in data %}
+        <tr style="text-align: center;background-color: cadetblue;color:#000;">
+          <th width="402">{{ x.course_name }}</th>
+          <th width="403">{{ x.faculty_name }}</th>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

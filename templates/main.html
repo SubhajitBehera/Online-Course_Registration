@@ -1,0 +1,24 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block pw %}
+<html><body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand" href="#">
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'admin_login' %}" style="color: blue">ADMIN <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'students_details' %}" style="color: blue">STUDENT </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<img src="{%static 'image/CODE.PNG'%}" height="250" width="300">
+    </body></html>
+{% endblock %}

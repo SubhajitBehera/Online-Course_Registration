@@ -1,0 +1,29 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block pw %}
+   {% include 'welcome_student.html' %}
+    <table align="center" border="2">
+    <tr>
+        <th width="300">CID</th>
+        <th width="300">COURSE NAME</th>
+        <th width="300">FACULTY NAME</th>
+        <th width="100">DELETE</th>
+    </tr>
+    {% for x in data %}
+      <tr>
+        <th width="300">{{ x.cid }}</th>
+        <th width="300">{{ x.course_name }}</th>
+        <th width="300">{{ x.faculty_name }}</th>
+        <th width="100">
+           <a href="{% url 'delete' %}?cid{{x.cid}}">
+               <img src="{% static 'image/trash.png' %}" width="50"></a>
+        </th>
+    </tr>
+    {% endfor %}
+    </table>
+    {% for x in messages %}
+        <h3 style="color: red;font-size: 40px;font-family: 'Segoe MDL2 Assets';text-align: center">
+            {{ x }}
+        </h3>
+    {% endfor %}
+{% endblock %}

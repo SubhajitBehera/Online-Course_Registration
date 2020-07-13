@@ -1,0 +1,33 @@
+{% extends 'common.html' %}
+
+{% block pw %}
+    {% include 'welcome_student.html' %}
+    <table align="center" border="0" bgcolor="yellow">
+    <tr style="text-align: center">
+        <th width="150">NAME</th>
+        <th width="150">FACULTY</th>
+        <th width="150">DATE</th>
+        <th width="150">TIME</th>
+        <th width="150">FEE</th>
+        <th width="150">DURATION</th>
+        <th width="150">ENROLL</th>
+    </tr>
+    {% for x in data %}
+        <tr style="color: #000009;text-align: center">
+            <th width="150">{{ x.name }}</th>
+            <th width="150">{{ x.faculty }}</th>
+            <th width="150">{{ x.date }}</th>
+            <th width="150">{{ x.time }}</th>
+            <th width="150">{{ x.fee }}</th>
+            <th width="150">{{ x.duration }}</th>
+            <th width="150"><a href="{% url 'enroll' %}?x1={{ x.name }}&x2={{ x.faculty }}">YES</a></th>
+        </tr>
+    {% endfor %}
+    </table>
+      {% for x in messages %}
+        <h3 style="color: red;font-size: 40px;font-family: 'Segoe MDL2 Assets';text-align: center">
+            {{ x }}
+        </h3>
+    {% endfor %}
+
+{% endblock %}

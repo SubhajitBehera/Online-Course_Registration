@@ -1,0 +1,16 @@
+
+{% extends 'common.html' %}
+{% load static %}
+
+{% block pw %}
+    {% include 'welcome_student.html' %}
+
+    <br><br>
+    <br><br>
+    <h1 style="text-align: center">
+       Welcome
+    </h1>
+    <h2 style="text-align: center">
+      Mr/Miss: {{ name|capfirst      }}
+    </h2>
+{% endblock %}
