@@ -44,5 +44,8 @@ urlpatterns = [
     path('view_all_course/', views.view_all_course, name='view_all_course'),
 
     path('cancel_enroled_course/', views.cancel_enroled_course, name='cancel_enroled_course'),
-    path('delete/', views.delete, name='delete')
+    path('delete/', views.delete, name='delete'),
+
+    path('checkOne/',views.checkOne,name='checkOne'),
+    path('checkCno/',views.checkContact,name='checkCno')
 ]

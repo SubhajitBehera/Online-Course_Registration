@@ -1,5 +1,8 @@
 {% extends 'common.html' %}
 {% load static %}
+<head>
+    <script src="{% static 'js/ajax_call.js' %}"></script>
+</head>
 
 {% block pw %}
     {% include 'students.html' %}
@@ -16,7 +19,8 @@
         </tr>
     <tr>
         <th>
-            <input type="text" placeholder="Name" required name="t1">
+            <input id="one" type="text" onblur="student_registration()" placeholder="Name" required name="t1">
+            <span id="one1"></span>
         </th>
     </tr>
     <tr>
@@ -26,7 +30,8 @@
     </tr>
     <tr>
         <th>
-            <input type="number" placeholder="Contact No" required name="t3">
+            <input id="two" type="number" onblur="contact()" placeholder="Contact No" required name="t3">
+            <span id="two2"></span>
         </th>
     </tr>
     <tr>
@@ -49,7 +54,7 @@
     </tr>
     <tr>
         <th>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button id="b1" type="submit" class="btn btn-primary">Register</button>
         </th>
     </tr>
 

@@ -1,7 +1,10 @@
+from django.http import JsonResponse
 from django.db import IntegrityError
 from django.shortcuts import render,redirect
 from app4.models import StudentModel,LoginModel,ScheduleModel,Enroll
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 # Create your views here.
 def showIndex(request):
@@ -122,4 +125,27 @@ def delete(request):
       Enroll.objects.get(cid=no).delete()
       messages.success(request,'Course deleted Successfully')
       return redirect('cancel_enroled_course')
+
+
+def checkOne(request):
+    name = request.POST.get("cname")
+    try:
+        StudentModel.objects.get(name=name)
+        res = {"error": "Name is Taken"}
+    except StudentModel.DoesNotExist:
+        res = {"message": "Name is Available"}
+
+    return JsonResponse(res)
+
+@method_decorator(csrf_exempt,name='dispatch')
+def checkContact(request):
+    contactno = request.POST.get("cno")
+    try:
+        StudentModel.objects.get(contactno=contactno)
+        res1={"error":"Contact No is Taken"}
+    except StudentModel.DoesNotExist:
+        res1={"message":"Contact No is Availabe"}
+
+    return JsonResponse(res1)
+
 
